@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bandari-motors",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-03-25",
+  // nodejs_compat is required by next/node-postgres; the fetch flag is
+  // recommended by the OpenNext adapter docs.
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
+  // OPTIONAL — Hyperdrive is the recommended way to reach Postgres from Workers.
+  // Create it in the dashboard, then uncomment and paste your config id.
+  // Then in Cloudflare → your Worker → Settings → Variables add the
+  // HYPERDRIVE_CONNECTION_STRING secret (the connection string Hyperdrive shows).
+  //
+  // "hyperdrive": [
+  //   { "binding": "HYPERDRIVE", "id": "<your-hyperdrive-config-id>" }
+  // ]
+}
